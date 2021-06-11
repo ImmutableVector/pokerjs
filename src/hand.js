@@ -24,11 +24,11 @@ export default class Hand {
    * The trick here is that an 'Ace' can either be a 'One' or higher than a King
    **/
   isStraight () {
-    let cards = ['Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace'];
+    let cardRanks = ['Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace'];
     var leadingAce = 0;
 
-    if (cards.indexOf(this.cards[0].card) === 12) {
-      if (cards.indexOf(this.cards[1].card !== 2)){
+    if (cardRanks.indexOf(this.cards[0].card) === 12) {
+      if (cardRanks.indexOf(this.cards[1].card) !== 0){
         return false;
       }
 
@@ -36,7 +36,7 @@ export default class Hand {
     }
 
     for (var i = leadingAce; i < this.cards.length - 1; i++){
-      if ((cards.indexOf(this.cards[i].card) + 1) !== cards.indexOf(this.cards[i + 1].card)){
+      if ((cardRanks.indexOf(this.cards[i].card) + 1) !== cardRanks.indexOf(this.cards[i + 1].card)){
         return false;
       }
     }
